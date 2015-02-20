@@ -29,7 +29,6 @@
 
 #include <condition_variable>
 #include <vector>
-#include <chrono>
 #include <mutex>
 
 namespace channel {
