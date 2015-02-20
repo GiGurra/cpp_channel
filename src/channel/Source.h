@@ -29,7 +29,7 @@ public:
     }
 
     template<typename _Rep, typename _Period>
-    std::vector<MessageType> takeWithin(const std::chrono::duration<_Rep, _Period> dt) {
+    std::vector<MessageType> takeWithin(const std::chrono::duration<_Rep, _Period>& dt) {
 
         std::unique_lock<std::mutex> lock(mutex_);
 
