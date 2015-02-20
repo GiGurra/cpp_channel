@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 
-#include <string>
 #include <channel/Channel.h>
 
 using namespace channel;
