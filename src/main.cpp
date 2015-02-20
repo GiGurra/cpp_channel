@@ -10,8 +10,8 @@ using namespace std;
 int main() {
 
     Channel<string> channel;
-    Sink<string>& sink = channel.sink();
-    Source<string>& source = channel.source();
+    auto& sink = channel.sink();
+    auto& source = channel.source();
 
     sink.give("abcde");
     sink.give("12345");
