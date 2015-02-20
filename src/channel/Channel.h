@@ -9,7 +9,6 @@
 #define CPP_CHANNEL_CHANNEL_H_
 
 #include <condition_variable>
-#include <memory>
 #include <vector>
 #include <chrono>
 #include <mutex>
