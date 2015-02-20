@@ -8,6 +8,11 @@
 #ifndef CHANNEL_SINK_H_
 #define CHANNEL_SINK_H_
 
+#include <condition_variable>
+#include <vector>
+#include <chrono>
+#include <mutex>
+
 namespace channel {
 
 template<typename MessageType>

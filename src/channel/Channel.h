@@ -8,11 +8,6 @@
 #ifndef CPP_CHANNEL_CHANNEL_H_
 #define CPP_CHANNEL_CHANNEL_H_
 
-#include <condition_variable>
-#include <vector>
-#include <chrono>
-#include <mutex>
-
 #include <channel/Sink.h>
 #include <channel/Source.h>
 
