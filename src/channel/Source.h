@@ -28,7 +28,8 @@ public:
                     messages_(messages) {
     }
 
-    std::vector<MessageType> takeWithin(const std::chrono::milliseconds dt) {
+    template<typename _Rep, typename _Period>
+    std::vector<MessageType> takeWithin(const std::chrono::duration<_Rep, _Period> dt) {
 
         std::unique_lock<std::mutex> lock(mutex_);
 
