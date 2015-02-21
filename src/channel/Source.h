@@ -55,20 +55,12 @@ public:
         if (messages_.empty())
             condition_.wait_for(lock, dt);
 
-        std::vector<MessageType> out = std::move(messages_);
-        messages_ = std::vector<MessageType>();
-
-        return out;
+        return flush(lock);
     }
 
     std::vector<MessageType> takeNow() {
-
         std::unique_lock<std::mutex> lock(mutex_);
-
-        std::vector<MessageType> out = std::move(messages_);
-        messages_ = std::vector<MessageType>();
-
-        return out;
+        return flush(lock);
     }
 
 private:
@@ -78,6 +70,16 @@ private:
 
     Source(const Source& other) = delete;
     Source& operator=(const Source& other) = delete;
+
+    std::vector<MessageType> flush(const std::unique_lock<std::mutex>&) {
+        if (messages_.empty()) {
+            return std::vector<MessageType>();
+        } else {
+            std::vector<MessageType> out = std::move(messages_);
+            messages_ = std::vector<MessageType>();
+            return out;
+        }
+    }
 };
 } /* namespace channe */
 
